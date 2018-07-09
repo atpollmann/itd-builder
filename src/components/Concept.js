@@ -63,8 +63,8 @@ class Concept extends Component {
         </header>
         <div className={classes.imgContainer}>
           <div className={classes.selectorsContainer}>
-            <Selector id={'566'} left={200} top={100} width={100} height={50} />
-            <Selector id={'545'} left={100} top={170} width={80} height={20} />
+            <Selector id={'76'} left={120} top={105} width={30} height={20} />
+            <Selector id={'767'} left={90} top={253} width={30} height={20} />
             {/*<div className={[classes.selector, classes.ax].join(' ')} onMouseOver={this.handlePopoverOpen} onMouseOut={this.handlePopoverClose} />*/}
           </div>
         </div>
@@ -82,7 +82,7 @@ class Concept extends Component {
             horizontal: 'center'
           }}
         >
-          <p>The content of the popover</p>
+          <p>Info for part {this.props.currentPart}</p>
         </Popover>
       
       </div>
@@ -93,7 +93,8 @@ class Concept extends Component {
 function mapStateToProps(state) {
   return {
     isPopperOpen: state.isPopperOpen,
-    popperAnchorEl: state.popperAnchorEl
+    popperAnchorEl: state.popperAnchorEl,
+    currentPart: state.currentPart
   }
 }
 
