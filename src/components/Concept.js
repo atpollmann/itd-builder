@@ -54,8 +54,6 @@ class Concept extends Component {
   render() {
     
     const { classes } = this.props;
-    const { anchorEl } = this.state;
-    const open = !!anchorEl;
     
     return (
       <div>
@@ -71,9 +69,9 @@ class Concept extends Component {
           </div>
         </div>
         <Popover
-          open={open}
+          open={this.props.isPopperOpen}
           className={classes.popover}
-          anchorEl={anchorEl}
+          anchorEl={this.props.popperAnchorEl}
           onClose={this.handlePopoverClose}
           anchorOrigin={{
             vertical: 'bottom',
@@ -94,7 +92,8 @@ class Concept extends Component {
 
 function mapStateToProps(state) {
   return {
-    popperOpen: state.popperOpen
+    isPopperOpen: state.isPopperOpen,
+    popperAnchorEl: state.popperAnchorEl
   }
 }
 

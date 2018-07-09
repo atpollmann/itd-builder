@@ -1,3 +1,5 @@
 export default {
-  isPopperOpen: false
+  isPopperOpen: false,
+  currentPart: null,
+  popperAnchorEl: null,
 }

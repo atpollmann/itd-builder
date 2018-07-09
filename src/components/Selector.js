@@ -5,8 +5,8 @@ import { openPopper, closePopper } from "../actions"
 
 class Selector extends Component {
   
-  onEnter = () => {
-    this.props.dispatch(openPopper(this.props.id))
+  onEnter = (event) => {
+    this.props.dispatch(openPopper(this.props.id, event.target))
   }
   
   onLeave = () => {

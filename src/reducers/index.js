@@ -9,12 +9,14 @@ function reducer(state = initialState, action) {
     case OPEN_POPPER:
       return {
         ...state,
-        isPopperOpen: action.isPopperOpen
+        isPopperOpen: action.isPopperOpen,
+        currentPart: action.currentPart,
+        popperAnchorEl: action.popperAnchorEl
       }
     case CLOSE_POPPER:
       return {
         ...state,
-        isPopperOpen: action.isPopperOpen
+        isPopperOpen: false
       }
     default:
       return state
