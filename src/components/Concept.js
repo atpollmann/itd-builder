@@ -55,6 +55,23 @@ class Concept extends Component {
     
     const { classes } = this.props;
     
+    const selectors = [
+      {
+        id: '76',
+        left: 120,
+        top: 105,
+        width: 30,
+        height: 20
+      },
+      {
+        id: '767',
+        left: 90,
+        top: 253,
+        width: 30,
+        height: 20
+      }
+    ]
+    
     return (
       <div>
         <header>
@@ -63,9 +80,16 @@ class Concept extends Component {
         </header>
         <div className={classes.imgContainer}>
           <div className={classes.selectorsContainer}>
-            <Selector id={'76'} left={120} top={105} width={30} height={20} />
-            <Selector id={'767'} left={90} top={253} width={30} height={20} />
-            {/*<div className={[classes.selector, classes.ax].join(' ')} onMouseOver={this.handlePopoverOpen} onMouseOut={this.handlePopoverClose} />*/}
+            {selectors.map((el, index) => {
+              return <Selector
+                key={index}
+                id={el.id}
+                left={el.left}
+                top={el.top}
+                width={el.width}
+                height={el.height}
+              />
+            })}
           </div>
         </div>
         <Popover
