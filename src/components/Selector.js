@@ -2,14 +2,26 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { openPopper, closePopper } from "../actions"
+import {
+  ITD_SELECTOR_BG_ON,
+  ITD_SELECTOR_BG_OFF,
+  ITD_SELECTOR_BO_ON,
+  ITD_SELECTOR_BO_OFF
+} from '../config'
 
 class Selector extends Component {
   
+  state = {
+    isOn: false
+  }
+  
   onEnter = (event) => {
+    this.setState({ isOn: true })
     this.props.dispatch(openPopper(this.props.id, event.target))
   }
   
   onLeave = () => {
+    this.setState({ isOn: false })
     this.props.dispatch(closePopper())
   }
 
@@ -19,12 +31,13 @@ class Selector extends Component {
       <div
         style={{
           position: 'absolute',
+          borderRadius: '5px',
           left: this.props.left,
           top: this.props.top,
           width: this.props.width,
           height: this.props.height,
-          border: '2px solid green',
-          backgroundColor: 'rgba(0,255,0,0.2)'
+          border: this.state.isOn ? ITD_SELECTOR_BO_ON : ITD_SELECTOR_BO_OFF,
+          backgroundColor: this.state.isOn ? ITD_SELECTOR_BG_ON : ITD_SELECTOR_BG_OFF
         }}
         onMouseEnter={this.onEnter}
         onMouseLeave={this.onLeave}
@@ -44,7 +57,7 @@ Selector.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    popperOpen: state.popperOpen
+    isPopperOpen: state.isPopperOpen
   }
 }
 

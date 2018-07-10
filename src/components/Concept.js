@@ -10,27 +10,14 @@ const sectionA = "iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAYAAACadoJwAAAABGdBTUEAALGPC/
 
 const styles = {
   imgContainer: {
-    border: '1px solid red',
     width: 800,
     height: 600,
     backgroundImage: `url(data:image/png;base64,${sectionA})`
   },
   selectorsContainer: {
     position: 'relative',
-    border: '1px solid green',
     width: 800,
     height: 600,
-  },
-  selector: {
-    position: 'absolute',
-    border: '2px solid green',
-    backgroundColor: 'rgba(0,255,0,0.2)'
-  },
-  ax: {
-    top: 100,
-    left: 200,
-    width: 100,
-    height: 50
   },
   popover: {
     pointerEvents: 'none',
