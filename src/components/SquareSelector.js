@@ -11,7 +11,7 @@ import {
   ITD_SELECTOR_RADIUS
 } from '../config'
 
-class Selector extends Component {
+class SquareSelector extends Component {
   
   state = {
     isOn: false
@@ -52,7 +52,7 @@ class Selector extends Component {
     const selectorStyle = ITD_SELECTOR_TYPE === 'box' ? this.boxStyle : this.circleStyle
     
     return (
-      <div
+      <path
         style={{
           ...selectorStyle,
           border: this.state.isOn ? ITD_SELECTOR_BO_ON : ITD_SELECTOR_BO_OFF,
@@ -61,12 +61,12 @@ class Selector extends Component {
         onMouseEnter={this.onEnter}
         onMouseLeave={this.onLeave}
       >
-      </div>
+      </path>
     )
   }
 }
 
-Selector.propTypes = {
+SquareSelector.propTypes = {
   id: PropTypes.string.isRequired,
   left: PropTypes.number.isRequired,
   top: PropTypes.number.isRequired,
@@ -80,4 +80,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Selector)
+export default connect(mapStateToProps)(SquareSelector)
